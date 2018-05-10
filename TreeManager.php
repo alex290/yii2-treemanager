@@ -5,7 +5,7 @@ namespace alex290\treemanager;
 /**
  * This is just an example.
  */
-class AutoloadExample extends \yii\base\Widget
+class TreeManager extends \yii\base\Widget
 {
     public function run()
     {
