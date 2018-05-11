@@ -50,7 +50,7 @@ php composer.phar require --prefer-dist alex290/yii2-treemanager "*"
 
 Сама модель использует обязательные поля
 
-	'id' - № - int,
+	'id',
 	'name' - Наименование - varchar,
-	'parent_id' - Родитель - int,
+	'parent_id' - Родитель - int (0 - главная или id родителя),
 	'weight' - Вес(порядок)  - int,
