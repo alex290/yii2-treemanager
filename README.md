@@ -47,3 +47,10 @@ php composer.phar require --prefer-dist alex290/yii2-treemanager "*"
             'modelTree' => $arrModel,
             'path' => '/admin/category', //Путь для ссылок редактирования и удаления
         ]) ?>
+
+Сама модель использует обязательные поля
+
+	'id' - № - int,
+	'name' - Наименование - varchar,
+	'parent_id' - Родитель - int,
+	'weight' - Вес(порядок)  - int,
