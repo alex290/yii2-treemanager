@@ -14,9 +14,14 @@ class TreeManager extends \yii\base\Widget
     {
         TreeAssetsBundle::register($this->view);
         $catstree = $this->getTree();
-        debug($catstree);
+        $modClon = clone $this->modelTree;
+        $modOne = $modClon->one();
+        //debug($catstree);
         $templ = '<div class="dd">';
         $templ .= $this->getTreeHtml($catstree);
+        $templ .= '</div>';
+        $templ .= '<div class="model-name-base">';
+        $templ .= get_class($modOne);
         $templ .= '</div>';
         return $templ;
     }
@@ -37,7 +42,8 @@ class TreeManager extends \yii\base\Widget
     
     protected function getTree() {
         $tree = [];
-        $catstree = $this->modelTree;
+        $modClon = clone $this->modelTree;
+        $catstree = $modClon->indexBy('id')->orderBy(['weight' => SORT_ASC])->asArray()->all();
         foreach ($catstree as $id => &$node) {
             if (!$node['parent_id'])
                 $tree[$id] = &$node;

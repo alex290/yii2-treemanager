@@ -22,6 +22,7 @@ class TreeAssetsBundle extends AssetBundle {
         'css/main.css',
     ];
     public $js = [
+        'js/jquery.json.min.js',
         'js/jquery.nestable.js',
         'js/main.js',
     ];
