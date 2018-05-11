@@ -3,7 +3,7 @@ Yii2 Tree Manager Category
 
 Расширение сортируется при помощи перетаскивания мышкой
 
- 
+ ![](https://raw.githubusercontent.com/alex290/yii2-treemanager/master/scr/img/demo.jpg)
 
 Установка
 ---------
