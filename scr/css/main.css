@@ -324,3 +324,13 @@ p {
 .model-name-base {
     display: none;
 }
+
+.editor-tree {
+    float: right;
+    margin-top: -3px;
+}
+
+.editor-tree a {
+    float: left;
+    margin-right: 15px;
+}

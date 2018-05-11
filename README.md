@@ -1,31 +1,49 @@
-Yii2 Tree manager category
+Yii2 Tree Manager Category
 ==========================
-Yii2 Tree manager category
 
-Installation
-------------
+Расширение сортируется при помощи перетаскивания мышкой
 
-The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+ 
 
-Either run
+Установка
+---------
 
-```
+Предпочтительным способом установки этого расширения является
+[composer](http://getcomposer.org/download/).
+
+Запустить
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 php composer.phar require --prefer-dist alex290/yii2-treemanager "*"
-```
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-or add
+или добавить
 
-```
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 "alex290/yii2-treemanager": "*"
-```
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-to the require section of your `composer.json` file.
+в раздел require вашего `composer.json` файла.
 
+в конфиге `web.php` прописать
 
-Usage
------
+	'modules' => [
+        'treemanager' => [
+            'class' => 'alex290\treemanager\Module',
+            'layout' => false,
+        ],
+    ],
 
-Once the extension is installed, simply use it in your code by  :
+ 
 
-```php
-<?= \alex290\treemanager\AutoloadExample::widget(); ?>```
+Применение
+----------
+
+После установки запустить виджет:
+
+	$arrModel = app\models\Category::find();
+
+	 <?= TreeManager::widget([
+            'modelTree' => $arrModel,
+            'path' => '/admin/category', //Путь для ссылок редактирования и удаления
+        ]) ?>
