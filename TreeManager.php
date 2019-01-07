@@ -36,9 +36,9 @@ class TreeManager extends \yii\base\Widget
             $tree .= '<li class="dd-item dd3-item" data-id="'.$treeTemp['id'].'">';
             $tree .= '<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">'.$treeTemp['name'];
             $tree .= '<div class="editor-tree">';
-            $tree .= '<a href="'.Url::to([$this->path.'/update', 'id'=>$treeTemp['id']]).'" class="success" title="Изменить"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+            $tree .= '<a href="'.Url::to([$this->path.'/update', 'id'=>$treeTemp['id']]).'" class="success" title="Изменить"><i class="fa fa-pencil fas fa-edit" aria-hidden="true"></i></a>';
             // $tree .= '<a href="'.Url::to([$this->path.'/view', 'id'=>$treeTemp['id']]).'" class="" title="Просмотр"><i class="fa fa-eye" aria-hidden="true"></i></a>';
-            $tree .= '<a href="'.Url::to([$this->path.'/delete', 'id'=>$treeTemp['id']]).'" class="danger" title="Удалить" data-method="post"><i class="fa fa-trash-o" aria-hidden="true"></i></a>';
+            $tree .= '<a href="'.Url::to([$this->path.'/delete', 'id'=>$treeTemp['id']]).'" class="danger" title="Удалить" data-method="post"><i class="fa fa-trash-o fas fa-trash-alt" aria-hidden="true"></i></a>';
             $tree .= '</div></div>';
             if (isset($treeTemp['childs'])){
                 $tree .= $this->getTreeHtml($treeTemp['childs']);
