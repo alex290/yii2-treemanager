@@ -44,9 +44,14 @@ php composer.phar require --prefer-dist alex290/yii2-treemanager "*"
 	$arrModel = app\models\Category::find();
 
 	 <?= TreeManager::widget([
-            'modelTree' => $arrModel,
-            'path' => '/admin/category', //Путь для ссылок редактирования и удаления
+            'modelTree' => $arrModel, 
         ]) ?>
+
+Дополнительные параметры
+
+    'path' => '/admin/category', //Изменить путь для ссылок редактирования и удаления
+    'delete' => 'delete', //Изменить Action для удаления
+    'update' => 'update', //Изменить Action для редактирования
 
 Сама модель использует обязательные поля
 
