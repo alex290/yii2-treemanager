@@ -97,7 +97,7 @@ p {
 
 .dd-handle {
     display: block;
-    height: 30px;
+    height: 45px;
     margin: 5px 0;
     padding: 5px 10px;
     color: #333;
@@ -126,7 +126,7 @@ p {
     float: left;
     width: 25px;
     height: 20px;
-    margin: 5px 0;
+    margin: 12px 0;
     padding: 0;
     text-indent: 100%;
     white-space: nowrap;
@@ -253,13 +253,14 @@ p {
  */
 
 .dd3-content {
-    display: block;
-    height: 30px;
+	display: block;
+	font-size: 16px;
+	height: 45px;
     margin: 5px 0;
-    padding: 5px 10px 5px 40px;
+    padding: 12px 10px 10px 75px;
     color: #333;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: 300;
     border: 1px solid #ccc;
     background: #fafafa;
     background: -webkit-linear-gradient(top, #fafafa 0%, #eee 100%);
@@ -281,16 +282,17 @@ p {
 }
 
 .dd3-item>button {
-    margin-left: 30px;
+    margin-left: 50px;
 }
 
 .dd3-handle {
     position: absolute;
     margin: 0;
     left: 0;
-    top: 0;
+	top: 0;
+	font-size: 0;
     cursor: pointer;
-    width: 30px;
+    width: 45px;
     text-indent: 100%;
     white-space: nowrap;
     overflow: hidden;
@@ -308,12 +310,12 @@ p {
     display: block;
     position: absolute;
     left: 0;
-    top: 3px;
+    top: 11px;
     width: 100%;
     text-align: center;
     text-indent: 0;
-    color: #fff;
-    font-size: 20px;
+    color: rgb(83, 83, 83);
+    font-size: 30px;
     font-weight: normal;
 }
 
@@ -327,7 +329,7 @@ p {
 
 .editor-tree {
     float: right;
-    margin-top: -3px;
+    margin-top: -9px;
 }
 
 .editor-tree a {
