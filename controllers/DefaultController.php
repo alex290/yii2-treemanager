@@ -11,23 +11,26 @@ class DefaultController extends Controller
         if (\Yii::$app->request->isAjax) {
             $dataPost = \Yii::$app->request->get();
             $dataArr = json_decode($dataPost['data']);
+
             
-            $this->saveModel($dataPost['name'], $dataArr);
+            $this->saveModel($dataPost['name'], $dataArr, 0, $dataPost['numb']);
+            
         }
         return TRUE;
     }
     
-    protected function saveModel($patch, $data, $parent = 0) {
-        $numb = 0;
+    protected function saveModel($patch, $data, $parent = 0, $numb) {
+        $firstNumb = $numb;
+        
         foreach ($data as $value) {
             $model = $patch::find()->where(['id' => $value->id])->one();
-            $model->weight = $numb;
+            $model->weight = $firstNumb;
             $model->parent_id = $parent;
             $model->save();
             if (isset($value->children)) {
-                $this->saveModel($patch, $value->children, $value->id);
+                $this->saveModel($patch, $value->children, $value->id, $numb);
             }
-            $numb++;
+            $firstNumb++;
         }
     }
 }

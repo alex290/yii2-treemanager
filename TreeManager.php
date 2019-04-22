@@ -15,6 +15,7 @@ class TreeManager extends \yii\base\Widget {
     public $path = null;
     public $delete = 'delete';
     public $update = 'update';
+    public $firstWeight = 0;
 
     public function run() {
         TreeAssetsBundle::register($this->view);
@@ -38,7 +39,7 @@ class TreeManager extends \yii\base\Widget {
 
     protected function getTreeHtml($treesTemp) {
         
-        $tree = '<ol class="dd-list">';
+        $tree = '<ol class="dd-list" data-numb="'.$this->firstWeight.'">';
         foreach ($treesTemp as $treeTemp) {
             $tree .= '<li class="dd-item dd3-item" data-id="' . $treeTemp['id'] . '">';
             $tree .= '<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">' . $treeTemp['name'];
