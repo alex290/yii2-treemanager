@@ -15,6 +15,7 @@ class TreeManager extends \yii\base\Widget {
     public $path = null;
     public $delete = 'delete';
     public $update = 'update';
+    public $viewPath = null;
     public $firstWeight = 0;
 
     public function run() {
@@ -44,6 +45,9 @@ class TreeManager extends \yii\base\Widget {
             $tree .= '<li class="dd-item dd3-item" data-id="' . $treeTemp['id'] . '">';
             $tree .= '<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">' . $treeTemp['name'];
             $tree .= '<div class="editor-tree">';
+            if ($this->viewPath != null) {
+                $tree .= Html::a('<i class="far fa-eye"></i>', [$this->viewPath, 'id' => $treeTemp['id']], ['class' => "btn btn-outline-dark", 'title' => "Просмотр"]);
+            }
             $tree .= Html::a('<i class="fa fa-pencil fas fa-edit" aria-hidden="true"></i>', [$this->path . '/' . $this->update, 'id' => $treeTemp['id']], ['class' => "btn btn-success", 'title' => "Изменить"]);
             $tree .= Html::a('<i class="fa fa-trash-o fas fa-trash-alt" aria-hidden="true"></i>', [$this->path . '/' . $this->delete, 'id' => $treeTemp['id']], ['class' => "btn btn-danger", 'data-confirm' => "Вы уверены, что хотите удалить этот элемент?", 'title' => "Удалить", 'data-method' => "post"]);
             $tree .= '</div></div>';

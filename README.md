@@ -52,6 +52,7 @@ php composer.phar require --prefer-dist alex290/yii2-treemanager "*"
     'path' => '/admin/category', //Изменить путь для ссылок редактирования и удаления
     'delete' => 'delete', //Изменить Action для удаления
     'update' => 'update', //Изменить Action для редактирования
+    'viewPath' => '/article/view', //Активировать Action для Просмотра (путь абсолютный)
     'firstWeight' => 0; //Изменить начальный вес (По умалчанию 0)
 
 
