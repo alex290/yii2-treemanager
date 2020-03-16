@@ -9,7 +9,7 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         if (\Yii::$app->request->isAjax) {
-            $dataPost = \Yii::$app->request->get();
+            $dataPost = \Yii::$app->request->post();
             $dataArr = json_decode($dataPost['data']);
 
             
