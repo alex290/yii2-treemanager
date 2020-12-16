@@ -42,10 +42,12 @@ php composer.phar require --prefer-dist alex290/yii2-treemanager "*"
 После установки запустить виджет:
 
 	$arrModel = app\models\Category::find();
-
+	
+	<?php if($arrModel->count() > 0): ?>
 	 <?= TreeManager::widget([
             'modelTree' => $arrModel, 
         ]) ?>
+	<?php endif ?>
 
 Дополнительные параметры
 
