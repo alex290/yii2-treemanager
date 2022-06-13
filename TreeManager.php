@@ -9,22 +9,26 @@ use Yii;
 /**
  * This is just an example.
  */
-class TreeManager extends \yii\base\Widget {
+class TreeManager extends \yii\base\Widget
+{
 
     public $modelTree;
+    public $name = ['name'];
+    public $nameRazd = ': ';
     public $path = null;
     public $delete = 'delete';
     public $update = 'update';
     public $viewPath = null;
     public $firstWeight = 0;
 
-    public function run() {
+    public function run()
+    {
         TreeAssetsBundle::register($this->view);
-        
+
         if ($this->path == null) {
             $this->path = $this->getPath();
         }
-        
+
         $catstree = $this->getTree();
         $modClon = clone $this->modelTree;
         $modOne = $modClon->one();
@@ -38,12 +42,20 @@ class TreeManager extends \yii\base\Widget {
         return $templ;
     }
 
-    protected function getTreeHtml($treesTemp) {
-        
-        $tree = '<ol class="dd-list" data-numb="'.$this->firstWeight.'">';
+    protected function getTreeHtml($treesTemp)
+    {
+
+        $tree = '<ol class="dd-list" data-numb="' . $this->firstWeight . '">';
         foreach ($treesTemp as $treeTemp) {
             $tree .= '<li class="dd-item dd3-item" data-id="' . $treeTemp['id'] . '">';
-            $tree .= '<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">' . $treeTemp['name'];
+            $nameFeild = '';
+            for ($i = 0; $i < count($this->name); $i++) {
+                if ($i > 0) {
+                    $nameFeild = $nameFeild . $this->nameRazd;
+                }
+                $nameFeild = $nameFeild . $treeTemp[$this->name[$i]];
+            }
+            $tree .= '<div class="dd-handle dd3-handle">Drag</div><div class="dd3-content">' . $nameFeild;
             $tree .= '<div class="editor-tree">';
             if ($this->viewPath != null) {
                 $tree .= Html::a('<i class="far fa-eye"></i>', [$this->viewPath, 'id' => $treeTemp['id']], ['class' => "btn btn-outline-dark", 'title' => "Просмотр"]);
@@ -60,7 +72,8 @@ class TreeManager extends \yii\base\Widget {
         return $tree;
     }
 
-    protected function getTree() {
+    protected function getTree()
+    {
         $tree = [];
         $modClon = clone $this->modelTree;
         $catstree = $modClon->indexBy('id')->orderBy(['weight' => SORT_ASC])->asArray()->all();
@@ -75,12 +88,12 @@ class TreeManager extends \yii\base\Widget {
         return $treeOne;
     }
 
-    protected function getPath() {
+    protected function getPath()
+    {
         $path = \yii\helpers\Url::to();
         $controllerId = Yii::$app->controller->id;
         $url = explode($controllerId, $path);
         $urlPath = $url[0] . $controllerId;
         return $urlPath;
     }
-
 }
